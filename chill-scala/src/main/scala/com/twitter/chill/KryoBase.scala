@@ -96,18 +96,22 @@ class KryoBase extends Kryo {
 
   private[this] def newTypedInstantiator[T](cls: Class[T]) = {
     import Instantiators._
-    newOrElse(cls,
+    newOrElse(
+      cls,
       List(reflectAsm[T](_), normalJava[T](_)),
       // Or fall back on the strategy:
-      tryStrategy(cls).newInstantiatorOf(cls))
+      tryStrategy(cls).newInstantiatorOf(cls)
+    )
   }
 }
 
 object Instantiators {
   // Go through the list and use the first that works
-  def newOrElse[T](cls: Class[T],
+  def newOrElse[T](
+    cls: Class[T],
     it: TraversableOnce[Class[T] => Try[ObjectInstantiator[T]]],
-    elsefn: => ObjectInstantiator[T]): ObjectInstantiator[T] = {
+    elsefn: => ObjectInstantiator[T]
+  ): ObjectInstantiator[T] = {
     // Just go through and try each one,
 
     it

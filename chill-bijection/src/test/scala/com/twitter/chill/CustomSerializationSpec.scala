@@ -43,14 +43,20 @@ class CustomSerializationSpec extends WordSpec with Matchers with BaseProperties
 
       // write bijections
       implicit val pointBijection = Bijection.build[Point, (Int, Int)](
-        Point.unapply(_).get)(
-          (Point.apply _).tupled)
+        Point.unapply(_).get
+      )(
+        (Point.apply _).tupled
+      )
       implicit val colorBijection = Bijection.build[Color, String](
-        Color.unapply(_).get)(
-          Color.apply)
+        Color.unapply(_).get
+      )(
+        Color.apply
+      )
       implicit val coloredPointBijection = Bijection.build[ColoredPoint, (Color, Point)](
-        ColoredPoint.unapply(_).get)(
-          (ColoredPoint.apply _).tupled)
+        ColoredPoint.unapply(_).get
+      )(
+        (ColoredPoint.apply _).tupled
+      )
 
       val myInst = { () =>
         (new ScalaKryoInstantiator).newKryo

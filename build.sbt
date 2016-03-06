@@ -16,7 +16,7 @@ def isScala210x(scalaVersion: String) = scalaVersion match {
 
 val sharedSettings = Project.defaultSettings ++ mimaDefaultSettings ++ scalariformSettings ++ Seq(
   organization := "com.twitter",
-  scalaVersion := "2.10.5",
+  scalaVersion := "2.11.7",
   crossScalaVersions := Seq("2.10.5", "2.11.7"),
   scalacOptions ++= Seq("-unchecked", "-deprecation"),
   ScalariformKeys.preferences := formattingPreferences,
@@ -152,9 +152,11 @@ lazy val chill = Project(
 
 lazy val chillAkka = module("akka").settings(
   resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+  javacOptions ++= Seq("-target", "1.8", "-source", "1.8", "-Xlint:-options"),
+  javacOptions in doc := Seq("-source", "1.8"),
   libraryDependencies ++= Seq(
     "com.typesafe" % "config" % "1.2.1",
-    "com.typesafe.akka" %% "akka-actor" % "2.3.6" % "provided"
+    "com.typesafe.akka" %% "akka-actor" % "2.4.2" % "provided"
   )
 ).dependsOn(chill % "test->test;compile->compile")
 

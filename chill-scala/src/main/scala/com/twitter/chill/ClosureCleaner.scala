@@ -65,8 +65,10 @@ object ClosureCleaner {
   // Return the $outer field for this class
   def outerFieldOf(c: Class[_]): Option[Field] =
     outerFields
-      .getOrElseUpdate(c,
-        c.getDeclaredFields.find { _.getName == OUTER })
+      .getOrElseUpdate(
+        c,
+        c.getDeclaredFields.find { _.getName == OUTER }
+      )
 
   /**
    * this does reflection each time

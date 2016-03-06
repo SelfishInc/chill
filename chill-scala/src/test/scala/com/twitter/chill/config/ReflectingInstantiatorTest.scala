@@ -27,12 +27,14 @@ class ReflectingInstantiatorTest extends WordSpec with Matchers {
   "A ReflectingInstantiator" should {
     "set keys into a config as expected" in {
 
-      val ri = ReflectingInstantiatorBuilder(instantiatorStrategyClass = classOf[InstantiatorStrategy],
+      val ri = ReflectingInstantiatorBuilder(
+        instantiatorStrategyClass = classOf[InstantiatorStrategy],
         classes = Iterable(new ClassRegistrar(classOf[List[_]])),
         serializers = Iterable(new ReflectingRegistrar(classOf[List[_]], classOf[com.esotericsoftware.kryo.serializers.JavaSerializer])),
         defaults = Iterable(new ReflectingDefaultRegistrar(classOf[List[_]], classOf[com.esotericsoftware.kryo.serializers.JavaSerializer])),
         skipMissing = true,
-        registrationRequired = true).build
+        registrationRequired = true
+      ).build
 
       val conf = ScalaAnyRefMapConfig.empty
       ri.set(conf)
@@ -42,18 +44,24 @@ class ReflectingInstantiatorTest extends WordSpec with Matchers {
       conf.toMap(ReflectingInstantiator.REGISTRATION_REQUIRED) should equal("true")
       conf.toMap(ReflectingInstantiator.SKIP_MISSING) should equal("true")
       conf.toMap(ReflectingInstantiator.REGISTRATIONS).asInstanceOf[String].split(":").toSet should equal (
-        Set("scala.collection.immutable.List",
-          "scala.collection.immutable.List,com.esotericsoftware.kryo.serializers.JavaSerializer"))
+        Set(
+          "scala.collection.immutable.List",
+          "scala.collection.immutable.List,com.esotericsoftware.kryo.serializers.JavaSerializer"
+        )
+      )
       conf.toMap(ReflectingInstantiator.DEFAULT_REGISTRATIONS).asInstanceOf[String].split(":").toSet should equal (
-        Set("scala.collection.immutable.List,com.esotericsoftware.kryo.serializers.JavaSerializer"))
+        Set("scala.collection.immutable.List,com.esotericsoftware.kryo.serializers.JavaSerializer")
+      )
     }
     "roundtrip through a config" in {
-      val ri = ReflectingInstantiatorBuilder(instantiatorStrategyClass = classOf[StdInstantiatorStrategy],
+      val ri = ReflectingInstantiatorBuilder(
+        instantiatorStrategyClass = classOf[StdInstantiatorStrategy],
         classes = Iterable(new ClassRegistrar(classOf[List[_]])),
         serializers = Iterable(new ReflectingRegistrar(classOf[List[_]], classOf[com.esotericsoftware.kryo.serializers.JavaSerializer])),
         defaults = Iterable(new ReflectingDefaultRegistrar(classOf[List[_]], classOf[com.esotericsoftware.kryo.serializers.JavaSerializer])),
         skipMissing = true,
-        registrationRequired = true).build
+        registrationRequired = true
+      ).build
 
       val conf = ScalaAnyRefMapConfig.empty
       ri.set(conf)
@@ -73,7 +81,8 @@ class ReflectingInstantiatorTest extends WordSpec with Matchers {
         ConfiguredInstantiator.setSerialized(
           conf,
           classOf[ScalaKryoInstantiator],
-          instantiator)
+          instantiator
+        )
       } catch {
         case e: Throwable => fail("Got exception serializing the instantiator\n" + e.printStackTrace)
       }

@@ -27,7 +27,8 @@ class Tuple1Serializer[A] extends KSerializer[Tuple1[A]] with Serializable {
   }
   def read(kser: Kryo, in: Input, cls: Class[Tuple1[A]]): Tuple1[A] = {
     new Tuple1[A](
-      kser.readClassAndObject(in).asInstanceOf[A])
+      kser.readClassAndObject(in).asInstanceOf[A]
+    )
   }
 }
 class Tuple2Serializer[A, B] extends KSerializer[Tuple2[A, B]] with Serializable {
@@ -39,7 +40,8 @@ class Tuple2Serializer[A, B] extends KSerializer[Tuple2[A, B]] with Serializable
   def read(kser: Kryo, in: Input, cls: Class[Tuple2[A, B]]): Tuple2[A, B] = {
     new Tuple2[A, B](
       kser.readClassAndObject(in).asInstanceOf[A],
-      kser.readClassAndObject(in).asInstanceOf[B])
+      kser.readClassAndObject(in).asInstanceOf[B]
+    )
   }
 }
 class Tuple3Serializer[A, B, C] extends KSerializer[Tuple3[A, B, C]] with Serializable {
@@ -53,7 +55,8 @@ class Tuple3Serializer[A, B, C] extends KSerializer[Tuple3[A, B, C]] with Serial
     new Tuple3[A, B, C](
       kser.readClassAndObject(in).asInstanceOf[A],
       kser.readClassAndObject(in).asInstanceOf[B],
-      kser.readClassAndObject(in).asInstanceOf[C])
+      kser.readClassAndObject(in).asInstanceOf[C]
+    )
   }
 }
 class Tuple4Serializer[A, B, C, D] extends KSerializer[Tuple4[A, B, C, D]] with Serializable {
@@ -69,7 +72,8 @@ class Tuple4Serializer[A, B, C, D] extends KSerializer[Tuple4[A, B, C, D]] with 
       kser.readClassAndObject(in).asInstanceOf[A],
       kser.readClassAndObject(in).asInstanceOf[B],
       kser.readClassAndObject(in).asInstanceOf[C],
-      kser.readClassAndObject(in).asInstanceOf[D])
+      kser.readClassAndObject(in).asInstanceOf[D]
+    )
   }
 }
 class Tuple5Serializer[A, B, C, D, E] extends KSerializer[Tuple5[A, B, C, D, E]] with Serializable {
@@ -87,7 +91,8 @@ class Tuple5Serializer[A, B, C, D, E] extends KSerializer[Tuple5[A, B, C, D, E]]
       kser.readClassAndObject(in).asInstanceOf[B],
       kser.readClassAndObject(in).asInstanceOf[C],
       kser.readClassAndObject(in).asInstanceOf[D],
-      kser.readClassAndObject(in).asInstanceOf[E])
+      kser.readClassAndObject(in).asInstanceOf[E]
+    )
   }
 }
 class Tuple6Serializer[A, B, C, D, E, F] extends KSerializer[Tuple6[A, B, C, D, E, F]] with Serializable {
@@ -107,7 +112,8 @@ class Tuple6Serializer[A, B, C, D, E, F] extends KSerializer[Tuple6[A, B, C, D, 
       kser.readClassAndObject(in).asInstanceOf[C],
       kser.readClassAndObject(in).asInstanceOf[D],
       kser.readClassAndObject(in).asInstanceOf[E],
-      kser.readClassAndObject(in).asInstanceOf[F])
+      kser.readClassAndObject(in).asInstanceOf[F]
+    )
   }
 }
 class Tuple7Serializer[A, B, C, D, E, F, G] extends KSerializer[Tuple7[A, B, C, D, E, F, G]] with Serializable {
@@ -129,7 +135,8 @@ class Tuple7Serializer[A, B, C, D, E, F, G] extends KSerializer[Tuple7[A, B, C, 
       kser.readClassAndObject(in).asInstanceOf[D],
       kser.readClassAndObject(in).asInstanceOf[E],
       kser.readClassAndObject(in).asInstanceOf[F],
-      kser.readClassAndObject(in).asInstanceOf[G])
+      kser.readClassAndObject(in).asInstanceOf[G]
+    )
   }
 }
 class Tuple8Serializer[A, B, C, D, E, F, G, H] extends KSerializer[Tuple8[A, B, C, D, E, F, G, H]] with Serializable {
@@ -153,7 +160,8 @@ class Tuple8Serializer[A, B, C, D, E, F, G, H] extends KSerializer[Tuple8[A, B, 
       kser.readClassAndObject(in).asInstanceOf[E],
       kser.readClassAndObject(in).asInstanceOf[F],
       kser.readClassAndObject(in).asInstanceOf[G],
-      kser.readClassAndObject(in).asInstanceOf[H])
+      kser.readClassAndObject(in).asInstanceOf[H]
+    )
   }
 }
 class Tuple9Serializer[A, B, C, D, E, F, G, H, I] extends KSerializer[Tuple9[A, B, C, D, E, F, G, H, I]] with Serializable {
@@ -179,7 +187,8 @@ class Tuple9Serializer[A, B, C, D, E, F, G, H, I] extends KSerializer[Tuple9[A, 
       kser.readClassAndObject(in).asInstanceOf[F],
       kser.readClassAndObject(in).asInstanceOf[G],
       kser.readClassAndObject(in).asInstanceOf[H],
-      kser.readClassAndObject(in).asInstanceOf[I])
+      kser.readClassAndObject(in).asInstanceOf[I]
+    )
   }
 }
 class Tuple10Serializer[A, B, C, D, E, F, G, H, I, J] extends KSerializer[Tuple10[A, B, C, D, E, F, G, H, I, J]] with Serializable {
@@ -207,7 +216,8 @@ class Tuple10Serializer[A, B, C, D, E, F, G, H, I, J] extends KSerializer[Tuple1
       kser.readClassAndObject(in).asInstanceOf[G],
       kser.readClassAndObject(in).asInstanceOf[H],
       kser.readClassAndObject(in).asInstanceOf[I],
-      kser.readClassAndObject(in).asInstanceOf[J])
+      kser.readClassAndObject(in).asInstanceOf[J]
+    )
   }
 }
 class Tuple11Serializer[A, B, C, D, E, F, G, H, I, J, K] extends KSerializer[Tuple11[A, B, C, D, E, F, G, H, I, J, K]] with Serializable {
@@ -237,7 +247,8 @@ class Tuple11Serializer[A, B, C, D, E, F, G, H, I, J, K] extends KSerializer[Tup
       kser.readClassAndObject(in).asInstanceOf[H],
       kser.readClassAndObject(in).asInstanceOf[I],
       kser.readClassAndObject(in).asInstanceOf[J],
-      kser.readClassAndObject(in).asInstanceOf[K])
+      kser.readClassAndObject(in).asInstanceOf[K]
+    )
   }
 }
 class Tuple12Serializer[A, B, C, D, E, F, G, H, I, J, K, L] extends KSerializer[Tuple12[A, B, C, D, E, F, G, H, I, J, K, L]] with Serializable {
@@ -269,7 +280,8 @@ class Tuple12Serializer[A, B, C, D, E, F, G, H, I, J, K, L] extends KSerializer[
       kser.readClassAndObject(in).asInstanceOf[I],
       kser.readClassAndObject(in).asInstanceOf[J],
       kser.readClassAndObject(in).asInstanceOf[K],
-      kser.readClassAndObject(in).asInstanceOf[L])
+      kser.readClassAndObject(in).asInstanceOf[L]
+    )
   }
 }
 class Tuple13Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M] extends KSerializer[Tuple13[A, B, C, D, E, F, G, H, I, J, K, L, M]] with Serializable {
@@ -303,7 +315,8 @@ class Tuple13Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M] extends KSerializ
       kser.readClassAndObject(in).asInstanceOf[J],
       kser.readClassAndObject(in).asInstanceOf[K],
       kser.readClassAndObject(in).asInstanceOf[L],
-      kser.readClassAndObject(in).asInstanceOf[M])
+      kser.readClassAndObject(in).asInstanceOf[M]
+    )
   }
 }
 class Tuple14Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N] extends KSerializer[Tuple14[A, B, C, D, E, F, G, H, I, J, K, L, M, N]] with Serializable {
@@ -339,7 +352,8 @@ class Tuple14Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N] extends KSeria
       kser.readClassAndObject(in).asInstanceOf[K],
       kser.readClassAndObject(in).asInstanceOf[L],
       kser.readClassAndObject(in).asInstanceOf[M],
-      kser.readClassAndObject(in).asInstanceOf[N])
+      kser.readClassAndObject(in).asInstanceOf[N]
+    )
   }
 }
 class Tuple15Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O] extends KSerializer[Tuple15[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O]] with Serializable {
@@ -377,7 +391,8 @@ class Tuple15Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O] extends KSe
       kser.readClassAndObject(in).asInstanceOf[L],
       kser.readClassAndObject(in).asInstanceOf[M],
       kser.readClassAndObject(in).asInstanceOf[N],
-      kser.readClassAndObject(in).asInstanceOf[O])
+      kser.readClassAndObject(in).asInstanceOf[O]
+    )
   }
 }
 class Tuple16Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P] extends KSerializer[Tuple16[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P]] with Serializable {
@@ -417,7 +432,8 @@ class Tuple16Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P] extends 
       kser.readClassAndObject(in).asInstanceOf[M],
       kser.readClassAndObject(in).asInstanceOf[N],
       kser.readClassAndObject(in).asInstanceOf[O],
-      kser.readClassAndObject(in).asInstanceOf[P])
+      kser.readClassAndObject(in).asInstanceOf[P]
+    )
   }
 }
 class Tuple17Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q] extends KSerializer[Tuple17[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q]] with Serializable {
@@ -459,7 +475,8 @@ class Tuple17Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q] exten
       kser.readClassAndObject(in).asInstanceOf[N],
       kser.readClassAndObject(in).asInstanceOf[O],
       kser.readClassAndObject(in).asInstanceOf[P],
-      kser.readClassAndObject(in).asInstanceOf[Q])
+      kser.readClassAndObject(in).asInstanceOf[Q]
+    )
   }
 }
 class Tuple18Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R] extends KSerializer[Tuple18[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R]] with Serializable {
@@ -503,7 +520,8 @@ class Tuple18Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R] ex
       kser.readClassAndObject(in).asInstanceOf[O],
       kser.readClassAndObject(in).asInstanceOf[P],
       kser.readClassAndObject(in).asInstanceOf[Q],
-      kser.readClassAndObject(in).asInstanceOf[R])
+      kser.readClassAndObject(in).asInstanceOf[R]
+    )
   }
 }
 class Tuple19Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S] extends KSerializer[Tuple19[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S]] with Serializable {
@@ -549,7 +567,8 @@ class Tuple19Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S]
       kser.readClassAndObject(in).asInstanceOf[P],
       kser.readClassAndObject(in).asInstanceOf[Q],
       kser.readClassAndObject(in).asInstanceOf[R],
-      kser.readClassAndObject(in).asInstanceOf[S])
+      kser.readClassAndObject(in).asInstanceOf[S]
+    )
   }
 }
 class Tuple20Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T] extends KSerializer[Tuple20[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T]] with Serializable {
@@ -597,7 +616,8 @@ class Tuple20Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S,
       kser.readClassAndObject(in).asInstanceOf[Q],
       kser.readClassAndObject(in).asInstanceOf[R],
       kser.readClassAndObject(in).asInstanceOf[S],
-      kser.readClassAndObject(in).asInstanceOf[T])
+      kser.readClassAndObject(in).asInstanceOf[T]
+    )
   }
 }
 class Tuple21Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U] extends KSerializer[Tuple21[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U]] with Serializable {
@@ -647,7 +667,8 @@ class Tuple21Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S,
       kser.readClassAndObject(in).asInstanceOf[R],
       kser.readClassAndObject(in).asInstanceOf[S],
       kser.readClassAndObject(in).asInstanceOf[T],
-      kser.readClassAndObject(in).asInstanceOf[U])
+      kser.readClassAndObject(in).asInstanceOf[U]
+    )
   }
 }
 class Tuple22Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V] extends KSerializer[Tuple22[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V]] with Serializable {
@@ -699,7 +720,8 @@ class Tuple22Serializer[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S,
       kser.readClassAndObject(in).asInstanceOf[S],
       kser.readClassAndObject(in).asInstanceOf[T],
       kser.readClassAndObject(in).asInstanceOf[U],
-      kser.readClassAndObject(in).asInstanceOf[V])
+      kser.readClassAndObject(in).asInstanceOf[V]
+    )
   }
 }
 

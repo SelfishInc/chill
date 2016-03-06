@@ -150,7 +150,8 @@ class KryoSpec extends WordSpec with Matchers with BaseProperties {
       val tests = Seq(
         Array((1, 1), (2, 2), (3, 3)).toSeq,
         Array((1.0, 1.0), (2.0, 2.0)).toSeq,
-        Array((1.0, "1.0"), (2.0, "2.0")).toSeq)
+        Array((1.0, "1.0"), (2.0, "2.0")).toSeq
+      )
       tests.foreach { _ should roundtrip }
     }
     "handle lists of lists" in {
@@ -239,14 +240,18 @@ class KryoSpec extends WordSpec with Matchers with BaseProperties {
         kryo.setRegistrationRequired(true)
         kryo
       }
-      val obj0 = mutable.Map(4 -> mutable.Set("house1", "house2"),
+      val obj0 = mutable.Map(
+        4 -> mutable.Set("house1", "house2"),
         1 -> mutable.Set("name3", "name4", "name1", "name2"),
-        0 -> mutable.Set(1, 2, 3, 4))
+        0 -> mutable.Set(1, 2, 3, 4)
+      )
 
       // Make sure to make a totally separate map to check equality with
-      val obj1 = mutable.Map(4 -> mutable.Set("house1", "house2"),
+      val obj1 = mutable.Map(
+        4 -> mutable.Set("house1", "house2"),
         1 -> mutable.Set("name3", "name4", "name1", "name2"),
-        0 -> mutable.Set(1, 2, 3, 4))
+        0 -> mutable.Set(1, 2, 3, 4)
+      )
 
       rtEquiv(inst, obj0) should equal(true)
     }

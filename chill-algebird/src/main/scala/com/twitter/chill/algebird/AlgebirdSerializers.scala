@@ -54,11 +54,13 @@ class MomentsSerializer extends KSerializer[Moments] {
     out.writeDouble(s.m4)
   }
   def read(kser: Kryo, in: Input, cls: Class[Moments]): Moments = {
-    Moments(in.readLong(true),
+    Moments(
+      in.readLong(true),
       in.readDouble,
       in.readDouble,
       in.readDouble,
-      in.readDouble)
+      in.readDouble
+    )
   }
 }
 

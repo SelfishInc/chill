@@ -151,9 +151,11 @@ class ScalaCollectionsRegistrar extends IKryoRegistrar {
       // default map implementation
       .forConcreteTraversableClass(HashMap[Any, Any]('a -> 'a, 'b -> 'b, 'c -> 'c, 'd -> 'd, 'e -> 'e))
       // The normal fields serializer works for ranges
-      .registerClasses(Seq(classOf[Range.Inclusive],
+      .registerClasses(Seq(
+        classOf[Range.Inclusive],
         classOf[NumericRange.Inclusive[_]],
-        classOf[NumericRange.Exclusive[_]]))
+        classOf[NumericRange.Exclusive[_]]
+      ))
       // Add some maps
       .forSubclass[SortedMap[Any, Any]](new SortedMapSerializer)
       .forTraversableSubclass(ListMap.empty[Any, Any])

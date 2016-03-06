@@ -16,11 +16,15 @@ limitations under the License.
 
 package com.twitter.chill.akka
 
+import akka.actor.Actor.Receive
 import org.scalatest._
 
-import akka.actor.{ ActorRef, ActorSystem }
+import akka.actor.{ Actor, Props, ActorRef, ActorSystem }
 import akka.serialization._
 import com.typesafe.config.ConfigFactory
+import scala.concurrent.duration._
+
+import scala.concurrent.Await
 
 class AkkaTests extends WordSpec with Matchers {
 
@@ -38,6 +42,14 @@ class AkkaTests extends WordSpec with Matchers {
   // Get the Serialization Extension
   val serialization = SerializationExtension(system)
 
+  val testActor = system.actorOf(Props(
+    new Actor {
+      override def receive: Receive = {
+        case m ⇒ println(m)
+      }
+    }
+  ), "test-actor")
+
   "AkkaSerializer" should {
     "be selected for tuples" in {
       // Find the Serializer for it
@@ -46,12 +58,12 @@ class AkkaTests extends WordSpec with Matchers {
     }
 
     "be selected for ActorRef" in {
-      val serializer = serialization.findSerializerFor(system.actorFor("akka://test-system/test-actor"))
+      val serializer = serialization.findSerializerFor(Await.result(system.actorSelection("akka://example/user/test-actor").resolveOne(2.second), 2.second))
       serializer.getClass.equals(classOf[AkkaSerializer]) should equal(true)
     }
 
     "serialize and deserialize ActorRef successfully" in {
-      val actorRef = system.actorFor("akka://test-system/test-actor")
+      val actorRef = Await.result(system.actorSelection("akka://example/user/test-actor").resolveOne(2.second), 2.second)
 
       val serialized = serialization.serialize(actorRef)
       serialized.isSuccess should equal(true)

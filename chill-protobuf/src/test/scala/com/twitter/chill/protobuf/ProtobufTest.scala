@@ -46,7 +46,8 @@ class ProtobufTest extends WordSpec with Matchers {
     })
 
     kpool.deepCopy(buildFatigueCount(12L, -1L, 42, List(1L, 2L))) should equal(
-      buildFatigueCount(12L, -1L, 42, List(1L, 2L)))
+      buildFatigueCount(12L, -1L, 42, List(1L, 2L))
+    )
 
     // Without the protobuf serializer, this fails:
     val kpoolBusted = KryoPool.withByteArrayOutputStream(1, new KryoInstantiator)
