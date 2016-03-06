@@ -155,7 +155,7 @@ lazy val chillAkka = module("akka").settings(
   javacOptions ++= Seq("-target", "1.8", "-source", "1.8", "-Xlint:-options"),
   javacOptions in doc := Seq("-source", "1.8"),
   libraryDependencies ++= Seq(
-    "com.typesafe" % "config" % "1.2.1",
+    "com.typesafe" % "config" % "1.3.0",
     "com.typesafe.akka" %% "akka-actor" % "2.4.2" % "provided"
   )
 ).dependsOn(chill % "test->test;compile->compile")
